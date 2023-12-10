@@ -1,10 +1,10 @@
-// Only run this as a WASM if the export-abi feature is not set.
-#![cfg_attr(not(feature = "export-abi"), no_main)]
-extern crate alloc;
+// // Only run this as a WASM if the export-abi feature is not set.
+// #![cfg_attr(not(feature = "export-abi"), no_main)]
+// extern crate alloc;
 
-/// Initializes a custom, global allocator for Rust programs compiled to WASM.
-#[global_allocator]
-static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+// /// Initializes a custom, global allocator for Rust programs compiled to WASM.
+// #[global_allocator]
+// static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 /// Import the Stylus SDK along with alloy primitive types for use in our program.
 use alloc::{string::String, vec::Vec};
@@ -24,7 +24,6 @@ pub trait Erc721Params {
 }
 
 sol_storage! {
-    // #[entrypoint]
     pub struct SimpleStory<T> {
         mapping(uint256 => address) _owners;
         mapping(address => uint256) _balances;
